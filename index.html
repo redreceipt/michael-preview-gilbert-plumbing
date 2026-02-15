@@ -4,51 +4,388 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Gilbert Plumbing Services — Preview</title>
-  <style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.5;color:#111;margin:0}header{background:#0b61a4;color:#fff;padding:32px 20px}main{padding:20px;max-width:900px;margin:0 auto}h1{margin:0 0 8px}section{margin-top:20px} .cta{display:inline-block;background:#ffb400;color:#000;padding:12px 18px;border-radius:6px;text-decoration:none;font-weight:600}</style>
+  <meta name="description" content="Preview landing page concept for Gilbert Plumbing Services (Simpsonville, SC) focused on calls and service requests.">
+  <style>
+    :root{
+      --bg: #f7f6f2;
+      --ink: #0b1220;
+      --muted: #4b5565;
+      --card: #ffffff;
+      --stroke: rgba(11,18,32,.10);
+      --navy: #0b1f3a;
+      --aqua: #17b9c0;
+      --amber: #f6b73c;
+      --shadow: 0 18px 50px rgba(11,18,32,.14);
+      --radius: 18px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:radial-gradient(1200px 500px at 15% -10%, rgba(23,185,192,.16), transparent 60%),
+                 radial-gradient(900px 420px at 100% 10%, rgba(246,183,60,.14), transparent 55%),
+                 var(--bg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height:1.5;
+    }
+
+    a{color:inherit}
+    .container{max-width:1060px;margin:0 auto;padding:0 18px}
+
+    .topline{
+      background:rgba(255,255,255,.55);
+      backdrop-filter: blur(8px);
+      border-bottom:1px solid var(--stroke);
+    }
+    .topline .row{
+      display:flex;gap:12px;align-items:center;justify-content:space-between;
+      padding:10px 0;font-size:14px;color:var(--muted);
+    }
+    .topline a{color:var(--muted);text-decoration:none}
+    .topline a:hover{text-decoration:underline}
+
+    header.hero{
+      padding:28px 0 18px;
+    }
+
+    .heroCard{
+      background:
+        linear-gradient(135deg, rgba(11,31,58,.96), rgba(11,31,58,.72)),
+        radial-gradient(600px 220px at 20% 20%, rgba(23,185,192,.55), transparent 60%),
+        radial-gradient(520px 240px at 90% 10%, rgba(246,183,60,.55), transparent 55%);
+      color:#fff;
+      border-radius: calc(var(--radius) + 10px);
+      box-shadow: var(--shadow);
+      border:1px solid rgba(255,255,255,.12);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:22px;
+      padding:26px;
+      align-items:start;
+    }
+
+    .badge{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:8px 12px;border-radius:999px;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.16);
+      font-size:13px;
+    }
+    .dot{width:10px;height:10px;border-radius:99px;background:var(--aqua);box-shadow:0 0 0 5px rgba(23,185,192,.18)}
+
+    h1{
+      margin:12px 0 10px;
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      letter-spacing:-.02em;
+      line-height:1.05;
+      font-size: clamp(34px, 4.2vw, 56px);
+    }
+    .lead{margin:0 0 18px;color:rgba(255,255,255,.86);max-width:54ch}
+    .ctaRow{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 14px;border-radius:12px;
+      border:1px solid transparent;
+      text-decoration:none;
+      font-weight:700;
+      letter-spacing:.01em;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn.primary{background:linear-gradient(135deg, var(--amber), #ffd27a);color:#14110a}
+    .btn.ghost{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16);color:#fff}
+    .btn.small{padding:10px 12px;border-radius:10px;font-weight:700}
+    .btn:hover{transform:translateY(-1px)}
+
+    .heroSide{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:16px;
+      padding:16px;
+    }
+    .heroSide h2{margin:0 0 10px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.76)}
+    .klist{margin:0;padding-left:18px;color:rgba(255,255,255,.90)}
+    .klist li{margin:8px 0}
+    .micro{color:rgba(255,255,255,.72);font-size:13px;margin:10px 0 0}
+
+    main{padding:18px 0 50px}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+      margin-top:14px;
+    }
+    .card{
+      background:rgba(255,255,255,.78);
+      border:1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(11,18,32,.08);
+      padding:18px;
+    }
+    .card h3{margin:0 0 10px;font-size:18px}
+    .card p{margin:0;color:var(--muted)}
+
+    .span-7{grid-column: span 7}
+    .span-5{grid-column: span 5}
+    .span-4{grid-column: span 4}
+    .span-6{grid-column: span 6}
+    .span-12{grid-column: span 12}
+
+    .services{
+      margin:0;padding:0;list-style:none;
+      display:grid;grid-template-columns: repeat(2, minmax(0,1fr));gap:10px;
+    }
+    .pill{
+      display:flex;gap:10px;align-items:flex-start;
+      padding:12px 12px;border-radius:14px;
+      background:rgba(11,18,32,.03);
+      border:1px solid rgba(11,18,32,.07);
+    }
+    .pill strong{display:block}
+    .pill small{display:block;color:var(--muted);margin-top:2px}
+    .icon{
+      width:34px;height:34px;border-radius:12px;
+      background:linear-gradient(135deg, rgba(23,185,192,.28), rgba(246,183,60,.18));
+      border:1px solid rgba(11,18,32,.08);
+      flex:0 0 auto;
+      display:flex;align-items:center;justify-content:center;
+      color:var(--navy);
+      font-weight:900;
+    }
+
+    .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px}
+    .step{
+      padding:14px;border-radius:16px;
+      background:rgba(255,255,255,.60);
+      border:1px solid var(--stroke);
+    }
+    .step b{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:10px;background:rgba(23,185,192,.18);border:1px solid rgba(23,185,192,.25);margin-right:8px}
+    .step p{margin:8px 0 0;color:var(--muted)}
+
+    form .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    label{display:block;font-weight:700;font-size:13px;color:var(--navy)}
+    input, textarea{
+      width:100%;
+      margin-top:6px;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(11,18,32,.12);
+      background:rgba(255,255,255,.92);
+      font:inherit;
+      outline:none;
+    }
+    textarea{resize:vertical;min-height:110px}
+    input:focus, textarea:focus{border-color:rgba(23,185,192,.55);box-shadow:0 0 0 4px rgba(23,185,192,.14)}
+
+    .fineprint{margin:10px 0 0;color:var(--muted);font-size:13px}
+    .footer{
+      margin-top:14px;
+      padding:14px 0 24px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .mobileBar{
+      position:fixed;
+      left:14px;right:14px;bottom:14px;
+      display:none;
+      gap:10px;
+      padding:10px;
+      border-radius: 18px;
+      background:rgba(255,255,255,.78);
+      border:1px solid var(--stroke);
+      box-shadow: 0 18px 50px rgba(11,18,32,.18);
+      backdrop-filter: blur(10px);
+      z-index:20;
+    }
+    .mobileBar a{flex:1}
+
+    @media (max-width: 900px){
+      .heroGrid{grid-template-columns:1fr}
+      .span-7,.span-5,.span-6,.span-4{grid-column:span 12}
+      .services{grid-template-columns:1fr}
+      .steps{grid-template-columns:1fr}
+      form .row{grid-template-columns:1fr}
+      .mobileBar{display:flex}
+      main{padding-bottom:92px}
+    }
+
+    /* reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      .btn:hover{transform:none}
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Gilbert Plumbing Services</h1>
-    <p>Preview — focused to generate more calls & requests</p>
-  </header>
-  <main>
-    <section>
-      <h2>Request Service — Fast</h2>
-      <p>Need a local plumber? Text or call <strong>(864) 561-9229</strong> or use the quick request form.</p>
-      <a class="cta" href="#contact">Request Service</a>
-    </section>
-
-    <section>
-      <h2>Why Gilbert Plumbing?</h2>
-      <ul>
-        <li>24/7 emergency response</li>
-        <li>Licensed & insured — visible badges (placeholders)</li>
-        <li>Local, family-operated team</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Featured Projects</h2>
-      <p>Small gallery / case study placeholders — replace with 3 recent jobs and before/after photos.</p>
-      <div style="display:flex;gap:12px;flex-wrap:wrap">
-        <div style="width:30%;background:#eee;height:120px;display:flex;align-items:center;justify-content:center">Project 1</div>
-        <div style="width:30%;background:#eee;height:120px;display:flex;align-items:center;justify-content:center">Project 2</div>
-        <div style="width:30%;background:#eee;height:120px;display:flex;align-items:center;justify-content:center">Project 3</div>
+  <div class="topline">
+    <div class="container">
+      <div class="row">
+        <div>
+          <strong style="color:var(--navy)">Preview</strong> concept for outreach (not the live site)
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end">
+          <a href="tel:+18645619229">Call: (864) 561-9229</a>
+          <a href="mailto:customerservicegilbertplumbing@gmail.com">Email: customerservicegilbertplumbing@gmail.com</a>
+        </div>
       </div>
-    </section>
+    </div>
+  </div>
 
-    <section id="contact">
-      <h2>Quick Request</h2>
-      <form action="#" method="POST">
-        <label>Name<br><input name="name" required></label><br><br>
-        <label>Phone or Email<br><input name="contact" required></label><br><br>
-        <label>Describe issue<br><textarea name="message" rows="4"></textarea></label><br><br>
-        <button type="submit" class="cta">Send Request</button>
-      </form>
-      <p style="margin-top:12px;font-size:90%">Note: Hook this form to email/SMS/CRM when ready.</p>
-    </section>
+  <header class="hero">
+    <div class="container">
+      <div class="heroCard">
+        <div class="heroGrid">
+          <div>
+            <div class="badge"><span class="dot" aria-hidden="true"></span><span>Simpsonville and surrounding Upstate SC</span></div>
+            <h1>Gilbert Plumbing Services</h1>
+            <p class="lead">A cleaner, faster landing page that turns mobile traffic into calls and service requests. Built around one goal: get the phone ringing.</p>
+            <div class="ctaRow">
+              <a class="btn primary" href="tel:+18645619229">Call Now</a>
+              <a class="btn ghost" href="#request">Request Service</a>
+              <a class="btn ghost small" href="https://www.gilbertplumbingservices.com/" target="_blank" rel="noopener noreferrer">View current site</a>
+            </div>
+            <p class="micro">Claim to confirm with owner: licensed, bonded, and insured; 20+ years experience.</p>
+          </div>
+          <aside class="heroSide">
+            <h2>Quick Wins This Preview Shows</h2>
+            <ul class="klist">
+              <li>Immediate call-to-action on every screen</li>
+              <li>Service list that reads cleanly on mobile</li>
+              <li>Trust section (licensed/insured + reviews)</li>
+              <li>Simple request form (wire to email/SMS in live version)</li>
+            </ul>
+            <p class="micro">For the live site: add 3 project photos and 2-3 short case studies.</p>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </header>
 
-    <footer style="margin-top:32px;border-top:1px solid #eee;padding-top:12px;font-size:90%">Preview site scaffold — replace content with client-provided text and images. Deploy to Vercel + wire form.</footer>
+  <main>
+    <div class="container">
+      <div class="grid">
+        <section class="card span-7" aria-labelledby="services">
+          <h3 id="services">Services (mobile-friendly)</h3>
+          <p>Structured so someone can decide in 10 seconds if you do the job they need.</p>
+          <div style="height:10px"></div>
+          <ul class="services">
+            <li class="pill"><span class="icon" aria-hidden="true">WH</span><div><strong>Water heaters</strong><small>Repair, replacement, and installs</small></div></li>
+            <li class="pill"><span class="icon" aria-hidden="true">DC</span><div><strong>Drain &amp; sewer</strong><small>Clogs, cleanouts, line issues</small></div></li>
+            <li class="pill"><span class="icon" aria-hidden="true">LR</span><div><strong>Leak repair</strong><small>Toilets, faucets, pipes, slab leaks</small></div></li>
+            <li class="pill"><span class="icon" aria-hidden="true">FI</span><div><strong>Fixtures</strong><small>Sinks, disposals, showers, valves</small></div></li>
+          </ul>
+        </section>
+
+        <section class="card span-5" aria-labelledby="trust">
+          <h3 id="trust">Trust, upfront</h3>
+          <p>Instead of hiding this in a footer, make it visible where decisions happen.</p>
+          <div style="height:10px"></div>
+          <div class="pill" style="margin-bottom:10px">
+            <span class="icon" aria-hidden="true">LI</span>
+            <div><strong>Licensed, bonded &amp; insured</strong><small>Wording and any license # confirmed before launch</small></div>
+          </div>
+          <div class="pill" style="margin-bottom:10px">
+            <span class="icon" aria-hidden="true">24</span>
+            <div><strong>Emergency response</strong><small>Fast contact routes for urgent issues</small></div>
+          </div>
+          <div class="pill">
+            <span class="icon" aria-hidden="true">EX</span>
+            <div><strong>20+ years experience</strong><small>Per current website copy</small></div>
+          </div>
+        </section>
+
+        <section class="card span-12" aria-labelledby="how">
+          <h3 id="how">How a service request works</h3>
+          <div class="steps">
+            <div class="step"><div><b>1</b><strong>Call or request service</strong></div><p>Tell us what’s going on, where, and how urgent it is.</p></div>
+            <div class="step"><div><b>2</b><strong>We confirm details</strong></div><p>We clarify access, timing, and any photos you can text ahead of time.</p></div>
+            <div class="step"><div><b>3</b><strong>Fix + follow-up</strong></div><p>Clear communication, then a simple “everything good?” follow-up.</p></div>
+          </div>
+        </section>
+
+        <section class="card span-7" id="request" aria-labelledby="requestTitle">
+          <h3 id="requestTitle">Request Service</h3>
+          <p>For the live version, this form is wired to your email/text/CRM. In this preview it opens an email draft.</p>
+          <div style="height:10px"></div>
+          <form id="requestForm">
+            <div class="row">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="name" autocomplete="name" required>
+              </div>
+              <div>
+                <label for="contact">Phone or email</label>
+                <input id="contact" name="contact" autocomplete="tel email" required>
+              </div>
+            </div>
+            <div style="height:10px"></div>
+            <div>
+              <label for="message">What’s the issue?</label>
+              <textarea id="message" name="message" placeholder="Example: Kitchen sink backing up, tried plunging, need help today."></textarea>
+            </div>
+            <div style="height:12px"></div>
+            <button class="btn primary" type="submit">Send Request</button>
+            <a class="btn ghost" href="tel:+18645619229" style="margin-left:8px">Call Instead</a>
+            <p class="fineprint">Email target shown here is from the current website: <a href="mailto:customerservicegilbertplumbing@gmail.com">customerservicegilbertplumbing@gmail.com</a>.</p>
+          </form>
+        </section>
+
+        <section class="card span-5" aria-labelledby="projects">
+          <h3 id="projects">Project highlights (placeholders)</h3>
+          <p>Replace these with 3 real jobs, before/after photos, and a 2-sentence outcome.</p>
+          <div style="height:10px"></div>
+          <div class="pill" style="margin-bottom:10px"><span class="icon" aria-hidden="true">1</span><div><strong>Water heater replacement</strong><small>Same-day swap + haul-away</small></div></div>
+          <div class="pill" style="margin-bottom:10px"><span class="icon" aria-hidden="true">2</span><div><strong>Main line clog</strong><small>Cleanout + camera check</small></div></div>
+          <div class="pill"><span class="icon" aria-hidden="true">3</span><div><strong>Leak under slab</strong><small>Isolate, repair, restore flow</small></div></div>
+        </section>
+      </div>
+
+      <div class="footer">
+        This page is a preview concept for outreach. If approved, the live version would add project photos, verified license/insurance wording, and a real lead form integration.
+      </div>
+    </div>
   </main>
+
+  <div class="mobileBar" role="navigation" aria-label="Quick actions">
+    <a class="btn primary" href="tel:+18645619229">Call</a>
+    <a class="btn ghost" href="#request">Request</a>
+  </div>
+
+  <script>
+    (function () {
+      const form = document.getElementById('requestForm');
+      if (!form) return;
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const name = document.getElementById('name')?.value?.trim() || '';
+        const contact = document.getElementById('contact')?.value?.trim() || '';
+        const message = document.getElementById('message')?.value?.trim() || '';
+
+        const body = [
+          'Service request (from preview):',
+          '',
+          'Name: ' + name,
+          'Contact: ' + contact,
+          '',
+          'Issue:',
+          message
+        ].join('\\n');
+
+        const subject = encodeURIComponent('Service request');
+        const mailBody = encodeURIComponent(body);
+        window.location.href = 'mailto:customerservicegilbertplumbing@gmail.com?subject=' + subject + '&body=' + mailBody;
+      });
+    })();
+  </script>
 </body>
 </html>

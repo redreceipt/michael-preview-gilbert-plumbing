@@ -1,10 +1,9 @@
-michael-preview-gilbert-plumbing
+Gilbert Plumbing Services preview (static)
 
-Local preview scaffold for Gilbert Plumbing Services.
+This is a lightweight, single-page preview intended for outreach.
 
 Next steps:
-- Replace placeholder images with real project photos (3+ recommended).
-- Add licensing/BBB badges and confirm wording with client.
-- Wire the contact form to email/SMS/CRM.
-- Create GitHub repo and push when you want the preview live.
-- Add Vercel project and set the Published URL (suggested: https://michael-preview-gilbert-plumbing.vercel.app)
+- Confirm preferred lead inbox/phone for the live version.
+- Replace placeholders with real project photos (3+ recommended).
+- Add license/insurance wording (and any license #) and confirm claims.
+- Wire the form to email/SMS/CRM (live version).
