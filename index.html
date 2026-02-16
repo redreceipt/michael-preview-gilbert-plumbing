@@ -65,6 +65,17 @@
       position:relative;
     }
 
+    .heroCard::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(135deg, rgba(11,31,58,.84), rgba(11,31,58,.62)),
+        url("assets/hero-1920.jpg") center 20% / cover no-repeat;
+      opacity:.42;
+      pointer-events:none;
+    }
+
     .heroCard::after{
       content:"";
       position:absolute;
@@ -82,6 +93,8 @@
       gap:22px;
       padding:26px;
       align-items:start;
+      position:relative;
+      z-index:1;
     }
 
     .badge{
@@ -223,6 +236,31 @@
       color:var(--muted);
       font-size:13px;
     }
+
+    .projectGrid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+      margin-top:10px;
+    }
+    .projectCard{
+      display:grid;
+      grid-template-columns: 92px 1fr;
+      gap:12px;
+      align-items:center;
+      padding:10px;
+      border-radius:16px;
+      background:rgba(11,18,32,.03);
+      border:1px solid rgba(11,18,32,.08);
+    }
+    .thumb{
+      width:92px;height:70px;
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(11,18,32,.10);
+      background:rgba(11,18,32,.04);
+    }
+    .thumb img{display:block;width:100%;height:100%;object-fit:cover}
 
     .mobileBar{
       position:fixed;
@@ -381,9 +419,20 @@
           <h3 id="projects">Project highlights (placeholders)</h3>
           <p>Replace these with 3 real jobs, before/after photos, and a 2-sentence outcome.</p>
           <div style="height:10px"></div>
-          <div class="pill" style="margin-bottom:10px"><span class="icon" aria-hidden="true">1</span><div><strong>Water heater replacement</strong><small>Same-day swap + haul-away</small></div></div>
-          <div class="pill" style="margin-bottom:10px"><span class="icon" aria-hidden="true">2</span><div><strong>Main line clog</strong><small>Cleanout + camera check</small></div></div>
-          <div class="pill"><span class="icon" aria-hidden="true">3</span><div><strong>Leak under slab</strong><small>Isolate, repair, restore flow</small></div></div>
+          <div class="projectGrid">
+            <div class="projectCard">
+              <div class="thumb"><img src="assets/project-1-640.jpg" alt="Recent plumbing project photo" loading="lazy" decoding="async"></div>
+              <div><strong>Water heater replacement</strong><div style="color:var(--muted);font-size:13px;margin-top:2px">Same-day swap + haul-away</div></div>
+            </div>
+            <div class="projectCard">
+              <div class="thumb"><img src="assets/project-2-640.jpg" alt="Recent plumbing project photo" loading="lazy" decoding="async"></div>
+              <div><strong>Main line clog</strong><div style="color:var(--muted);font-size:13px;margin-top:2px">Cleanout + camera check</div></div>
+            </div>
+            <div class="projectCard">
+              <div class="thumb"><img src="assets/project-3-640.jpg" alt="Recent plumbing project photo" loading="lazy" decoding="async"></div>
+              <div><strong>Leak repair</strong><div style="color:var(--muted);font-size:13px;margin-top:2px">Isolate, repair, restore flow</div></div>
+            </div>
+          </div>
         </section>
       </div>
 
