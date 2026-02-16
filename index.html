@@ -13,8 +13,10 @@
       --card: #ffffff;
       --stroke: rgba(11,18,32,.10);
       --navy: #0b1f3a;
-      --aqua: #17b9c0;
-      --amber: #f6b73c;
+      /* Brand cues pulled from their current site: --color_1 ~= rgb(178,20,16) */
+      --brand: #b21410;
+      --brand2: #6b0b09;
+      --accent: #f6b73c;
       --shadow: 0 18px 50px rgba(11,18,32,.14);
       --radius: 18px;
     }
@@ -24,8 +26,8 @@
     body{
       margin:0;
       color:var(--ink);
-      background:radial-gradient(1200px 500px at 15% -10%, rgba(23,185,192,.16), transparent 60%),
-                 radial-gradient(900px 420px at 100% 10%, rgba(246,183,60,.14), transparent 55%),
+      background:radial-gradient(1200px 520px at 12% -10%, rgba(178,20,16,.14), transparent 62%),
+                 radial-gradient(900px 420px at 100% 10%, rgba(0,0,0,.08), transparent 58%),
                  var(--bg);
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
       line-height:1.5;
@@ -53,14 +55,25 @@
     .heroCard{
       background:
         linear-gradient(135deg, rgba(11,31,58,.96), rgba(11,31,58,.72)),
-        radial-gradient(600px 220px at 20% 20%, rgba(23,185,192,.55), transparent 60%),
-        radial-gradient(520px 240px at 90% 10%, rgba(246,183,60,.55), transparent 55%);
+        radial-gradient(600px 220px at 18% 18%, rgba(178,20,16,.45), transparent 62%),
+        radial-gradient(520px 240px at 88% 10%, rgba(246,183,60,.35), transparent 55%);
       color:#fff;
       border-radius: calc(var(--radius) + 10px);
       box-shadow: var(--shadow);
       border:1px solid rgba(255,255,255,.12);
       overflow:hidden;
       position:relative;
+    }
+
+    .heroCard::after{
+      content:"";
+      position:absolute;
+      left:0;right:0;bottom:-1px;
+      height:96px;
+      background: url("assets/slant-top.svg") center bottom / cover no-repeat;
+      opacity:.95;
+      pointer-events:none;
+      mix-blend-mode: overlay;
     }
 
     .heroGrid{
@@ -78,10 +91,28 @@
       border:1px solid rgba(255,255,255,.16);
       font-size:13px;
     }
-    .dot{width:10px;height:10px;border-radius:99px;background:var(--aqua);box-shadow:0 0 0 5px rgba(23,185,192,.18)}
+    .dot{width:10px;height:10px;border-radius:99px;background:var(--brand);box-shadow:0 0 0 5px rgba(178,20,16,.18)}
+
+    .brandRow{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-top:12px;
+    }
+    .logo{
+      width:52px;height:52px;
+      border-radius:14px;
+      background: rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.16);
+      box-shadow: 0 10px 28px rgba(0,0,0,.22);
+      overflow:hidden;
+      flex:0 0 auto;
+      display:flex;align-items:center;justify-content:center;
+    }
+    .logo img{display:block;width:100%;height:100%;object-fit:cover}
 
     h1{
-      margin:12px 0 10px;
+      margin:10px 0 10px;
       font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
       letter-spacing:-.02em;
       line-height:1.05;
@@ -100,7 +131,7 @@
       cursor:pointer;
       user-select:none;
     }
-    .btn.primary{background:linear-gradient(135deg, var(--amber), #ffd27a);color:#14110a}
+    .btn.primary{background:linear-gradient(135deg, var(--brand), #e1423e);color:#fff}
     .btn.ghost{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16);color:#fff}
     .btn.small{padding:10px 12px;border-radius:10px;font-weight:700}
     .btn:hover{transform:translateY(-1px)}
@@ -153,7 +184,7 @@
     .pill small{display:block;color:var(--muted);margin-top:2px}
     .icon{
       width:34px;height:34px;border-radius:12px;
-      background:linear-gradient(135deg, rgba(23,185,192,.28), rgba(246,183,60,.18));
+      background:linear-gradient(135deg, rgba(178,20,16,.18), rgba(0,0,0,.06));
       border:1px solid rgba(11,18,32,.08);
       flex:0 0 auto;
       display:flex;align-items:center;justify-content:center;
@@ -167,7 +198,7 @@
       background:rgba(255,255,255,.60);
       border:1px solid var(--stroke);
     }
-    .step b{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:10px;background:rgba(23,185,192,.18);border:1px solid rgba(23,185,192,.25);margin-right:8px}
+    .step b{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:10px;background:rgba(178,20,16,.16);border:1px solid rgba(178,20,16,.22);margin-right:8px}
     .step p{margin:8px 0 0;color:var(--muted)}
 
     form .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -183,7 +214,7 @@
       outline:none;
     }
     textarea{resize:vertical;min-height:110px}
-    input:focus, textarea:focus{border-color:rgba(23,185,192,.55);box-shadow:0 0 0 4px rgba(23,185,192,.14)}
+    input:focus, textarea:focus{border-color:rgba(178,20,16,.55);box-shadow:0 0 0 4px rgba(178,20,16,.14)}
 
     .fineprint{margin:10px 0 0;color:var(--muted);font-size:13px}
     .footer{
@@ -246,7 +277,14 @@
         <div class="heroGrid">
           <div>
             <div class="badge"><span class="dot" aria-hidden="true"></span><span>Simpsonville and surrounding Upstate SC</span></div>
-            <h1>Gilbert Plumbing Services</h1>
+            <div class="brandRow">
+              <div class="logo" aria-hidden="true">
+                <img src="assets/gilbert-logo.jpg" alt="">
+              </div>
+              <div style="min-width:0">
+                <h1 style="margin:0">Gilbert Plumbing Services</h1>
+              </div>
+            </div>
             <p class="lead">A cleaner, faster landing page that turns mobile traffic into calls and service requests. Built around one goal: get the phone ringing.</p>
             <div class="ctaRow">
               <a class="btn primary" href="tel:+18645619229">Call Now</a>
